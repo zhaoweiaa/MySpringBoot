@@ -1,0 +1,1 @@
+应用名称：${application.title}你正在使用的spring-boot version:${spring-boot.version}${application.version}
