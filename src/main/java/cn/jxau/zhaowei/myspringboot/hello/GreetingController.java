@@ -1,6 +1,7 @@
 package cn.jxau.zhaowei.myspringboot.hello;
 
 import cn.jxau.zhaowei.myspringboot.runner.FirstRunner;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +23,9 @@ import java.util.concurrent.atomic.AtomicLong;
  */
 @RestController
 @PropertySource({"classpath:application.properties"})
+@Slf4j
 public class GreetingController {
-    private Logger logger = LoggerFactory.getLogger(GreetingController.class);
+
     @Autowired
     private Settings settings;
 
@@ -38,7 +40,7 @@ public class GreetingController {
 
     @RequestMapping("/greeting")
     public Greeting greeting(@RequestParam(value = "name", defaultValue = "world") String name){
-        logger.warn(logger.getName()+ "hava finished greeting method");
+        log.warn(log.getName()+ "hava finished greeting method");
         System.out.println(settings.getName()+settings.getDomain());
         System.out.println(settingsByPrefix.getName()+settingsByPrefix.getDomain());
 
